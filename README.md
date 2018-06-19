@@ -16,5 +16,5 @@ $id = $doc.package.metadata.id
 ```powershell
 $el = $doc.CreateElement('releaseNotes', $doc.package.metadata.NamespaceUri)
 $el.InnerXml = 'Fixed some bugs.'
-$doc.package.metadata.AppendChild($el)
+$doc.package.metadata.AppendChild($el) | Out-Null   # Pipe to null to avoid dumping large output to console
 ```
