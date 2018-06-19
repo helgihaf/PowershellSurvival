@@ -31,13 +31,14 @@ Given this function, saved in Get-CountX.ps1
 [CmdletBinding()]
 param(
     [Parameter(ValueFromPipeline)]
-    $file
+    [System.IO.FileInfo]$Path
 )
 begin {
     Write-Host 'Begin'
+    $prefix = '-felix-'
 }
 process {
-    Write-Host $file.FullName.Length
+    Write-Host "$prefix $($Path.FullName.Length)"
 }
 end {
     Write-Host 'End'
@@ -50,8 +51,18 @@ Get-ChildItem | .\Get-CountX.ps1
 ...and get a result like this:
 ```
 Begin
-27
-37
-42
+-felix- 27
+-felix- 37
+-felix- 42
+End
+```
+Or you can run this:
+```powershell
+.\Get-CountX.ps1 -Path c:\temp\goofy.txt
+```
+...and get a result like this:
+```
+Begin
+-felix- 17
 End
 ```
