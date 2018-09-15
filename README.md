@@ -26,9 +26,9 @@ $defaultNamespace = $doc.DocumentElement.NamespaceURI
 
 ### Select nodes using namespace
 ```powershell
-[System.Xml.XmlNamespaceManager] $nsMgr = New-Object -TypeName System.Xml.XmlNamespaceManager($xml.NameTable)
+[System.Xml.XmlNamespaceManager] $nsMgr = New-Object -TypeName System.Xml.XmlNamespaceManager -ArgumentList $proj.NameTable
 $nsMgr.AddNamespace("ns", "http://schemas.microsoft.com/developer/msbuild/2003");
-[XmlNode] $nodes = $xml.SelectNodes("/ns:Project/ItemGroup/Reference", $nsMgr);
+$rpNodes = $proj.SelectNodes("/ns:Project/ns:PropertyGroup/ns:RestorePackages", $nsMgr);
 ```
 
 ## Modules
