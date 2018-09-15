@@ -19,6 +19,18 @@ $el.InnerText = 'Fixed some bugs.'
 $doc.package.metadata.AppendChild($el) | Out-Null   # Pipe to null to avoid dumping large output to console
 ```
 
+### Get default namespace of a document
+```powershell
+$defaultNamespace = $doc.DocumentElement.NamespaceURI
+```
+
+### Select nodes using namespace
+```powershell
+[System.Xml.XmlNamespaceManager] $nsMgr = New-Object -TypeName System.Xml.XmlNamespaceManager($xml.NameTable)
+$nsMgr.AddNamespace("ns", "http://schemas.microsoft.com/developer/msbuild/2003");
+[XmlNode] $nodes = $xml.SelectNodes("/ns:Project/ItemGroup/Reference", $nsMgr);
+```
+
 ## Modules
 ```powershell
 Import-Module .\MyModule.psm1
