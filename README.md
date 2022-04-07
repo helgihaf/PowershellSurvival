@@ -1,5 +1,17 @@
 # PowershellSurvival
 
+## Basic Commands
+
+### Find file
+```powershell
+Get-Childitem -Include *HSG* -File -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -ge $FindDate }
+```
+
+### Grep - Find File Content
+```powershell
+Get-ChildItem -Filter *.log -Recurse | Select-String "Contoso"
+```
+
 ## XML
 
 ### Load an XML document
