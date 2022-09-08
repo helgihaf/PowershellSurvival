@@ -12,6 +12,11 @@ Get-Childitem -Include *HSG* -File -Recurse -ErrorAction SilentlyContinue | Wher
 Get-ChildItem -Filter *.log -Recurse | Select-String "Contoso"
 ```
 
+### Remove Directory and Contents
+```powershell
+Remove-Item $folderPath -Force -Recurse -ErrorAction SilentlyContinue
+```
+
 ## XML
 
 ### Load an XML document
