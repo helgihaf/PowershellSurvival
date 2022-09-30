@@ -17,6 +17,16 @@ Get-ChildItem -Filter *.log -Recurse | Select-String "Contoso"
 Remove-Item $folderPath -Force -Recurse -ErrorAction SilentlyContinue
 ```
 
+### List Environment Variables
+```powershell
+gci Env:* | sort name
+```
+
+### Set Environment Variable
+```powershell
+$Env:AWS_REGION='eu-central-1'
+```
+
 ## XML
 
 ### Load an XML document
