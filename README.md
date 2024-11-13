@@ -15,6 +15,10 @@ or
 ```powershell
 Get-ChildItem -Recurse -Include *.h, *.cpp | Select-String -Pattern "Contoso|Pontoso"
 ```
+or, for whole word, case sensitive
+```powershell
+Get-ChildItem -Recurse -Include *.h, *.cpp | Select-String -Pattern "\bContoso\b" -CaseSensitive
+```
 
 ### Remove Directory and Contents
 ```powershell
