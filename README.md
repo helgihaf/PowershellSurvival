@@ -11,6 +11,10 @@ Get-Childitem -Include *HSG* -File -Recurse -ErrorAction SilentlyContinue | Wher
 ```powershell
 Get-ChildItem -Filter *.log -Recurse | Select-String "Contoso"
 ```
+or
+```powershell
+Get-ChildItem -Recurse -Include *.h, *.cpp | Select-String -Pattern "Contoso|Pontoso"
+```
 
 ### Remove Directory and Contents
 ```powershell
